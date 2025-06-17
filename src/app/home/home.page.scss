@@ -1,53 +1,138 @@
-.pokemon-card {
+:host {
+  display: block;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page-title {
   text-align: center;
-  border-radius: 16px;
-  background: linear-gradient(to bottom right, #f44336, #ffeb3b);
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Filtro */
+.filter-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  ion-card-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-shadow: 1px 1px #000;
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
-    margin: 12px auto;
-  }
+  font-weight: 500;
+  font-size: 16px;
 }
 
-ion-footer {
-  background: #f2f2f2;
-  border-top: 2px solid #e0e0e0;
-
-  ion-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-
-    ion-button {
-      --background: linear-gradient(135deg, #FFCB05, #3B4CCA);
-      --color: white;
-      --border-radius: 10px;
-      --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    ion-title {
-      font-weight: bold;
-      font-size: 16px;
-      color: #333;
-    }
-  }
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
 }
 
+.filter-chip {
+  padding: 6px 12px;
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.filter-chip.selected {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Cards de Pokémon */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.pokemon-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.pokemon-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.pokemon-card h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #2c3e50;
+  text-transform: capitalize;
+}
+
+.pokemon-types {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Ícone de favorito */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.favorite-icon.favorited {
+  color: #e91e63;
+}
+
+.favorite-icon:hover {
+  color: #e91e63;
+  cursor: pointer;
+}
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+ion-button {
+  --border-radius: 20px;
+  --background: #1976d2;
+  --color: white;
+  font-size: 14px;
+  padding: 6px 16px;
+}
+
+ion-title {
+  font-size: 14px;
+  color: #333;
+}
