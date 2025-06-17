@@ -16,7 +16,6 @@ export class HomePage implements OnInit {
   pokemons: any[] = [];
 
   constructor(private pokemonService: PokemonService, private router: Router) {}
-  
 
   ngOnInit() {
     this.loadPokemons();
@@ -26,9 +25,8 @@ export class HomePage implements OnInit {
     this.pokemonService.getPokemons(20, 0).subscribe(response => {
       const results = response.results;
 
-      // Buscar detalhes de cada Pokémon para pegar imagem e outras infos
       results.forEach((pokemon: any) => {
-        this.pokemonService.getPokemonDetails(pokemon.name).subscribe(details => {
+        this.pokemonService.getPokemonDetails(pokemon.name).subscribe((details: any) => {
           this.pokemons.push({
             name: pokemon.name,
             image: details.sprites.front_default

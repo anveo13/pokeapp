@@ -1,50 +1,41 @@
-ion-content {
-  --background: #f8f9fa; // fundo claro
+.card-container {
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
-  text-align: center;
-
-  .pokedex-card {
-    background-color: white;
-    border: 4px double #2a9d8f; // borda retrô
-    border-radius: 20px;
-    padding: 32px 24px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    max-width: 420px;
-    width: 100%;
-    transition: transform 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    &:hover {
-      transform: scale(1.02);
-    }
-
-    img {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
-      margin-bottom: 16px;
-      border-radius: 50%;
-      background-color: #f1f1f1;
-      padding: 8px;
-    }
-
-    h2 {
-      font-size: 28px;
-      color: #264653;
-      margin-bottom: 8px;
-    }
-
-    p {
-      font-size: 16px;
-      color: #495057;
-      margin: 4px 0;
-    }
-
-    .back-button {
-      margin-top: 24px;
-    }
-  }
+  padding: 16px;
 }
+
+ion-card {
+  width: 100%;
+  max-width: 550px;
+  border: 2px solid #ff0000; /* borda vermelha para estilo Pokémon */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+  background: #fff7f7;
+  margin-top: 80px;
+}
+
+.title-center {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #d32f2f;
+}
+
+.sprites {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sprites img {
+  height: 80px;
+  width: auto;
+  border: 1px solid #d32f2f;
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+}
+

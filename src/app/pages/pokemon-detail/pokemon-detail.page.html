@@ -1,29 +1,56 @@
-<ion-content class="pokedex-content" [fullscreen]="true">
-  <div class="pokedex-card">
-    <ion-buttons slot="start">
-  <ion-back-button defaultHref="/"></ion-back-button>
-</ion-buttons>
-    <img [src]="pokemon?.sprites?.other?.['official-artwork']?.front_default" alt="{{ pokemon?.name }}" />
+<ion-content class="ion-padding">
+  <div class="card-container" *ngIf="pokemon">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="title-center">{{ pokemon.name | titlecase }}</ion-card-title>
+      </ion-card-header>
 
-    <h1>{{ pokemon?.name | titlecase }}</h1>
+      <ion-card-content>
+        <div class="sprites">
+          <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
+          <img [src]="pokemon.sprites.back_default" alt="Back Sprite" />
+          <img [src]="pokemon.sprites.front_shiny" alt="Shiny Front" />
+          <img [src]="pokemon.sprites.back_shiny" alt="Shiny Back" />
+        </div>
 
-    <div class="info-line">
-      <strong>Altura:</strong> {{ pokemon?.height / 10 }} m
-    </div>
-    <div class="info-line">
-      <strong>Peso:</strong> {{ pokemon?.weight / 10 }} kg
-    </div>
-    <div class="info-line">
-      <strong>Tipo(s):</strong>
-      <span
-        class="type-badge"
-        *ngFor="let type of pokemon?.types"
-        [ngClass]="type.type.name"
-      >
-        {{ type.type.name | titlecase }}
-      </span>
-    </div>
-    
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label><strong>Tipos:</strong></ion-label>
+            <ion-note slot="end">{{ typesText }}</ion-note>
+          </ion-item>
 
+          <ion-item>
+            <ion-label><strong>Habilidades:</strong></ion-label>
+            <ion-note slot="end">{{ abilitiesText }}</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><strong>Stats:</strong></ion-label>
+            <ion-note slot="end">{{ statsText }}</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><strong>Altura:</strong></ion-label>
+            <ion-note slot="end">{{ pokemon.height / 10 }} m</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><strong>Peso:</strong></ion-label>
+            <ion-note slot="end">{{ pokemon.weight / 10 }} kg</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><strong>Experiência Base:</strong></ion-label>
+            <ion-note slot="end">{{ pokemon.base_experience }}</ion-note>
+          </ion-item>
+        </ion-list>
+
+        <div class="back-button-container">
+          <ion-button expand="block" fill="outline" (click)="goBack()">
+            ← Voltar
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
