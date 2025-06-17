@@ -1,18 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Pokémons</ion-title>
+  <ion-toolbar color="danger">
+    <ion-title>Pokedéx</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-   <ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.name)">
-  <ion-avatar slot="start">
-    <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
-  </ion-avatar>
-  <ion-label>
-    <h2>{{ pokemon.name | titlecase }}</h2>
-  </ion-label>
-</ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="6"
+        sizeMd="4"
+        sizeLg="3"
+        *ngFor="let pokemon of pokemons"
+      >
+        <ion-card class="pokemon-card" (click)="goToDetails(pokemon.name)">
+          <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+          <ion-card-header>
+            <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="previousPage()" [disabled]="currentPage === 0">
+        ← Anterior
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Página {{ currentPage + 1 }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="nextPage()">
+        Próxima →
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

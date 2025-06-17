@@ -21,20 +21,39 @@ export class HomePage implements OnInit {
     this.loadPokemons();
   }
 
-  loadPokemons() {
-    this.pokemonService.getPokemons(20, 0).subscribe(response => {
-      const results = response.results;
+currentPage = 0;
+limit = 20;
 
-      results.forEach((pokemon: any) => {
-        this.pokemonService.getPokemonDetails(pokemon.name).subscribe((details: any) => {
-          this.pokemons.push({
-            name: pokemon.name,
-            image: details.sprites.front_default
-          });
+loadPokemons() {
+  const offset = this.currentPage * this.limit;
+  this.pokemons = []; // limpa a lista ao trocar de página
+
+  this.pokemonService.getPokemons(this.limit, offset).subscribe(response => {
+    const results = response.results;
+
+    results.forEach((pokemon: any) => {
+      this.pokemonService.getPokemonDetails(pokemon.name).subscribe(details => {
+        this.pokemons.push({
+          name: pokemon.name,
+          image: details.sprites.front_default
         });
       });
     });
+  });
+}
+
+nextPage() {
+  this.currentPage++;
+  this.loadPokemons();
+}
+
+previousPage() {
+  if (this.currentPage > 0) {
+    this.currentPage--;
+    this.loadPokemons();
   }
+}
+
 
   goToDetails(name: string) {
     this.router.navigate(['/pages/pokemon-detail', name]);
