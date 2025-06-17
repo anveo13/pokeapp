@@ -3,6 +3,7 @@ import { PokemonService } from '../services/pokemon.service';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 export class HomePage implements OnInit {
   pokemons: any[] = [];
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
+  
 
   ngOnInit() {
     this.loadPokemons();
@@ -34,5 +36,9 @@ export class HomePage implements OnInit {
         });
       });
     });
+  }
+
+  goToDetails(name: string) {
+    this.router.navigate(['/pages/pokemon-detail', name]);
   }
 }

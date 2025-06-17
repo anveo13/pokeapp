@@ -6,13 +6,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let pokemon of pokemons">
-      <ion-avatar slot="start">
-        <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ pokemon.name | titlecase }}</h2>
-      </ion-label>
-    </ion-item>
+   <ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.name)">
+  <ion-avatar slot="start">
+    <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+  </ion-avatar>
+  <ion-label>
+    <h2>{{ pokemon.name | titlecase }}</h2>
+  </ion-label>
+</ion-item>
   </ion-list>
 </ion-content>
