@@ -1,19 +1,48 @@
-# PokeApp
+# 📱 PokeApp
 
-Este é um aplicativo construído com Ionic + Angular que consome a API pública [PokeAPI](https://pokeapi.co/).
+Uma Pokédex moderna desenvolvida com **Ionic + Angular** utilizando a [PokeAPI](https://pokeapi.co/).  
+O projeto permite buscar, filtrar, visualizar detalhes e **favoritar Pokémons**, com **paginação** de resultados.
 
-O objetivo do projeto é listar Pokémons com seus nomes e imagens, permitindo navegação para uma tela de detalhes com mais informações.
+---
 
-Utilizei Angular Standalone Components, seguindo as práticas mais atuais do framework.
+## 🚀 Funcionalidades
 
-Implementei um serviço para integração com a PokeAPI utilizando HttpClient e injeção de dependência.
+- ✅ Listagem de Pokémons com paginação (20 por página)
+- 🔎 Busca por nome
+- 🧩 Filtros por tipo (com seleção múltipla)
+- 📋 Visualização detalhada de cada Pokémon (mínimo de 6 características e imagens)
+- ⭐ Favoritar/desfavoritar Pokémons
+- 🧭 Navegação entre páginas
+- 💾 Armazenamento local de favoritos com `localStorage`
+- 🎨 Layout responsivo e amigável
 
-O projeto é responsivo, adaptado para uso em modo retrato e paisagem em dispositivos móveis.
+---
 
-Implementei paginação na tela principal para melhor experiência do usuário.
+Tecnologias utilizadas:
 
-É possível marcar Pokémons como favoritos e visualizá-los em uma lista separada.
+Ionic Framework
 
-Os commits foram feitos de forma frequente e clara, seguindo boas práticas de versionamento.
+Angular
 
-Estou documentando o progresso passo a passo para que o repositório seja de fácil leitura e acompanhamento.
+PokeAPI
+
+TypeScript / HTML / SCSS
+
+
+
+## ▶️ Como rodar o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/pokeapp.git
+cd pokeapp
+
+2. Instale as dependências
+
+npm install
+
+
+3. Execute o projeto
+
+ionic serve
